@@ -1,0 +1,120 @@
+/* style reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  background: greenyellow;
+  font-family:  'Helvetica Neue',sans-serif;
+  font-size: 20px;
+  font-weight: 0;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+.panels {
+  min-height: 100vh;
+  display: flex;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.panel {
+  background: #6b0f9c;
+  box-shadow: inset 0 0 0 5px rgba(255, 255, 255, 0.1);
+  color: #fff;
+  text-align: center;
+  align-items: center;
+  /*For Future Me:
+  Safari transitionend event.propertyName === flex- Chrome & FireFox transitionend event,propertyName === flex-grow */
+  transition:
+    font-size 0.7s cubic-bezier(0.61, -0.19, 0.7, -0.11),
+    flex 0.7s cubic-bezier(0.61, -0.19, 0.7, -0.11),
+    background 0.2s;
+  font-size: 20px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  flex: 1;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.panel1 {
+  background-image: url(https://source.unsplash.com/4T5MTKMrjZg/1500x1500);
+}
+
+.panel2 {
+  background-image: url(https://source.unsplash.com/FJFPuE1MAOM/1500x1500);
+}
+
+.panel3 {
+  background-image: url(https://images.unsplash.com/photo-1540497077202-7c8a3999166f);
+}
+
+.panel4 {
+  background-image: url(https://source.unsplash.com/6_HqvY1E7NI/1500x1500);
+  background-position: right;
+}
+
+.panel5 {
+  background-image: url(https://source.unsplash.com/26J6wLYKtPw/1500x1500);
+  background-position: bottom;
+}
+
+/*Flex Items*/
+.panel>* {
+  width: 100%;
+  transition: transform 0.65s;
+  flex: 1 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*Animation effect*/
+.panel > *:first-child {
+  transform: translateY(-100%);
+}
+
+.panel.open-active > *:first-child {
+  transform: translateY(0);
+}
+
+.panel > *:last-child {
+  transform: translateY(100%);
+}
+
+.panel.open-active > *:last-child {
+  transform: translateY(0);
+}
+
+.panel p {
+  text-transform: uppercase;
+  font-family: "Amatic SC", cursive;
+  text-shadow:  0 0 4px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 0, 0, 0.8);
+  font-size: 2rem;
+  font-weight: 100;
+}
+
+.panel p:nth-child(2) {
+  font-size: 2.5rem;
+}
+
+.panel.open {
+  flex: 5;
+  font-size: 40px;
+}
+
+@media only screen and (max-width: 600px) {
+  .panel p {
+    font-size: 1em !important;
+  }
+}
